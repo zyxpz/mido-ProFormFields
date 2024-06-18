@@ -149,7 +149,7 @@ const ProFormField: <T, CP>(props: IProForm<T, CP>) => any = ({
         );
       }
       return Component ? (
-        <Fragment>
+        <Fragment key={key}>
           <Component {...itemProps} form={form}>
             {item.items ? renderProForm(item.items) : item.children}
           </Component>
