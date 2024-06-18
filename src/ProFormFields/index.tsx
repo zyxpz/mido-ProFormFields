@@ -1,7 +1,7 @@
 import * as ProFormFields from '@ant-design/pro-components';
 import { type ProFormInstance } from '@ant-design/pro-components';
 import { Divider } from 'antd';
-import { get } from 'lodash';
+import get from 'lodash.get';
 import React, {
   ComponentProps,
   ComponentType,
@@ -30,7 +30,8 @@ type ProFormFieldsType =
   | 'ProFormList'
   | 'ProFormUploadDragger'
   | 'ProFormUploadButton'
-  | 'ProFormDependency';
+  | 'ProFormDependency'
+  | 'ProFormCaptcha';
 
 type FormType = 'ProFormRadioGroup' | ProFormFieldsType;
 
