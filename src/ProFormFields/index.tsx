@@ -95,6 +95,14 @@ const ProFormField: <T, CP>(props: IProForm<T, CP>) => any = ({
       const type = item?.type?.toUpperCase() as unknown as ProFormFieldsType;
       const Component: any = components[type];
       let itemProps: any = item.props || {};
+      if (form) {
+        Object.keys(itemProps).forEach((key) => {
+          if (typeof itemProps[key] === 'function') {
+            itemProps[key] = itemProps[key].bind(form);
+          }
+        });
+      }
+
       const { name } = itemProps;
       if (dynamicOptions) {
         Object.keys(dynamicOptions).forEach((optionKey) => {
