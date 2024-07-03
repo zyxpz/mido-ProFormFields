@@ -33,7 +33,7 @@ type ProFormFieldsType =
   | 'ProFormDependency'
   | 'ProFormCaptcha';
 
-type FormType = 'ProFormRadioGroup' | ProFormFieldsType;
+type FormType = 'ProFormRadioGroup' | 'ProFormTextPassword' | ProFormFieldsType;
 
 export type ProFormFieldsProps = ComponentProps<
   (typeof ProFormFields)[ProFormFieldsType]
@@ -73,7 +73,9 @@ const proFormComponents: IComponents = Object.keys(ProFormFields).reduce(
     acc[key] = ProFormFields[cur as ProFormFieldsType];
     return acc;
   },
-  {} as IComponents,
+  {
+    PROFORMTEXTPASSWORD: ProFormFields.ProFormText.Password,
+  },
 );
 
 const ProFormField: <T, CP>(props: IProForm<T, CP>) => any = ({
